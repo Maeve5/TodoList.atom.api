@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import View from './View';
 import Add from './Add';
+import Edit from './Edit';
 
 function Nav () {
 
@@ -24,7 +25,7 @@ function Nav () {
                 setContent(<Add />);
                 break;
             case 'edit':
-                setContent();
+                setContent(<Edit />);
                 break;
             default:
                 setContent(null);

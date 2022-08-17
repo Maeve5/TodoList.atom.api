@@ -6,7 +6,7 @@ function View () {
 
     const setTodoList = useRecoilValue(todoListState);
  
-    const ViewLists = setTodoList.map((row, idx) => {
+    const viewLists = setTodoList.map((row, idx) => {
         return (
             <div key={idx}>
                 <input type='checkbox' id={row.id} />
@@ -23,7 +23,7 @@ function View () {
         <article>
             {
                 setTodoList.length ?
-                ViewLists :
+                viewLists :
                 <p>ADD를 눌러 할 일을 추가하세요.</p>
             }
         </article>
