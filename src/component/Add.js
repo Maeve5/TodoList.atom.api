@@ -8,31 +8,32 @@ const getId = () => {
     return id++;
 }
 
-function Add () {
+function Add() {
 
     const [newTodo, setNewTodo] = useState('');
     const setTodoList = useSetRecoilState(todoListState);
     const input = useRef(null);
 
     // 입력한 todo값 받아오기
-    const onChange = ({target: {value}}) => {
+    const onChange = ({ target: { value } }) => {
         setNewTodo(value);
     };
 
     // Add 버튼 클릭
     const onAdd = () => {
         newTodo ?
-        // todo값이 있을 때
-        setTodoList((row) => [
-            ...row,
-            {
-                id: getId(),
-                todo: newTodo,
-                isCheck: false
-            }
-        ]) :
-        // todo값이 없을 때
-        alert('할 일을 입력하세요.');
+            // todo값이 있을 때
+            setTodoList((row) => [
+                ...row,
+                {
+                    id: getId(),
+                    todo: newTodo,
+                    isCheck: false
+                }
+            ]) :
+            // todo값이 없을 때
+            alert('할 일을 입력하세요.');
+
         // todo값 초기화
         setNewTodo('');
         // 자동 포커스
@@ -40,18 +41,20 @@ function Add () {
     };
 
     return (
-        <article>
+        <>
             <View />
-            <input
-                type='text'
-                value={newTodo}
-                onChange={onChange}
-                placeholder='할 일을 입력하세요.'
-                autoFocus
-                ref={input}
-            />
-            <button onClick={onAdd} >Add</button>
-        </article>
+            <article>
+                <input
+                    type='text'
+                    placeholder='할 일을 입력하세요.'
+                    value={newTodo}
+                    onChange={onChange}
+                    autoFocus
+                    ref={input}
+                />
+                <button onClick={onAdd}>Add</button>
+            </article>
+        </>
     );
 };
 

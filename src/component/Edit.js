@@ -1,72 +1,33 @@
-import React, { useState, useRecoilValue } from 'react';
+import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import todoListState from '../atom/todoListState';
+import Editform from './Editform';
 
 function Edit() {
 
-    const todoList = useRecoilValue(todoListState);
+    const [todoList, setTodoList] = useRecoilState(todoListState);
 
-    // const newList = todoList.map((row) => {
-    //     return (
-    //         <
-    //     );
-    // })
-
-    const Editform = ({ row }) => {
-        const { id, todo } = row;
-
-        const [data, setData] = useState(todo);
-
-        const onEdit = () => {
-
-        };
-
-        const onDelete = () => {
-
-        };
-
-        return (
-            <div>
-                <input
-                    type="text"
-                    id={id}
-                    name="todo"
-                    value={data}
-                    onChange={(e) => {
-                        setData(e.target.value)
-                    }}
-                    className='todoInput'
-                    placeholder='할 일을 입력하세요.'
-                    autoComplete='off' />
-                <input
-                    type="button"
-                    className="V btn"
-                    id={id}
-                    onClick={() => {
-                        onEdit(id, data);
-                    }}
-                    value="V" />
-                <input
-                    type="button"
-                    className="X btn"
-                    id={id}
-                    onClick={() => {
-                        onDelete(id);
-                    }}
-                    value="X" />
-            </div>
-        );
+    // 수정사항 임시저장
+    const [editTodoList, setEditTodoList] = useState(JSON.parse(JSON.stringify(todoList)));
+    
+    // 수정사항 atom에 저장
+    const onSave = () => {
+        setTodoList(editTodoList)
     };
 
     return (
         <article>
-            {todoList.map((row, idx) => {
+            {editTodoList.map((row, idx) => {
                 return (
                     <Editform
                         key={idx}
                         row={row}
+                        editTodoList={editTodoList}
+                        setEditTodoList={setEditTodoList}
                     />
-                );
+                )
             })}
+            <button onClick={onSave}>Save</button>
         </article>
     );
 };
