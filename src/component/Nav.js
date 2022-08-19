@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import View from './View';
 import Add from './Add';
 import Edit from './Edit';
+import '../App.css';
 
 function Nav() {
 

@@ -3,7 +3,7 @@ import Template from './component/Template';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Template />
     </div>
   );
