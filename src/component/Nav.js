@@ -5,8 +5,11 @@ import Edit from './Edit';
 
 function Nav() {
 
-    const navList = ['view', 'add', 'edit']
+    // mode값
+    const modeList = ['view', 'add', 'edit']
     const [mode, setMode] = useState('view');
+
+    // mode 별 출력 내용
     const [content, setContent] = useState(null);
 
     // 메뉴탭 클릭 시 모드 변경
@@ -36,7 +39,7 @@ function Nav() {
     return (
         <>
             <nav>
-                {navList.map((row, idx) => {
+                {modeList.map((row, idx) => {
                     return (
                         <a
                             key={idx}

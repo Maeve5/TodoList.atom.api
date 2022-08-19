@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { useSetRecoilState } from 'recoil';
 import todoListState from '../atom/todoListState';
 import View from './View';
+// import API from '../modules/api'
+// import onGetTodoList from '../modules/onGetTodoList'
 
 let id = 0;
 const getId = () => {
@@ -15,7 +17,7 @@ function Add() {
     const input = useRef(null);
 
     // 입력한 todo값 받아오기
-    const onChange = ({ target: { value } }) => {
+    const onChange = ({ target: {value} }) => {
         setNewTodo(value);
     };
 
@@ -39,6 +41,26 @@ function Add() {
         // 자동 포커스
         input.current.focus();
     };
+
+    // async function onAdd() {
+    //     try {
+    //         const response = await API.post('/todo', {
+    //             id: getId(),
+    //             todo: newTodo,
+    //             isCheck: false,
+    //         });
+    //         onGetTodoList();
+    //         console.log(response);
+
+    //         // todo값 초기화
+    //         setNewTodo('');
+    //         // 자동 포커스
+    //         input.current.focus();
+
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     }
 
     return (
         <>

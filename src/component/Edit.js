@@ -7,10 +7,10 @@ function Edit() {
 
     const [todoList, setTodoList] = useRecoilState(todoListState);
 
-    // 수정사항 임시저장
+    // 수정된 목록 임시저장
     const [editTodoList, setEditTodoList] = useState(JSON.parse(JSON.stringify(todoList)));
     
-    // 수정사항 atom에 저장
+    // 수정된 목록 atom에 저장
     const onSave = () => {
         setTodoList(editTodoList)
     };
