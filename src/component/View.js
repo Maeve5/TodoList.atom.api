@@ -31,7 +31,7 @@ function View() {
             .catch(error => {
                 console.log(error);
             })
-    }, [])
+    }, [setTodoList])
 
     // 체크 여부 유지
     const onCheck = (e) => {
