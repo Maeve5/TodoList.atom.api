@@ -11,10 +11,9 @@ function View() {
         const newList = JSON.parse(JSON.stringify(todoList));
 
         const checkList = newList.map((row) => {
-            if (row.id === Number(checked.id) && row.todo) {
+            if (row.id === Number(checked.id)) {
                 return {
                     ...row,
-                    todo: row.todo,
                     isCheck: checked.checked
                 };
             };

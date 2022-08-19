@@ -40,6 +40,8 @@ function Add() {
         input.current.focus();
     };
 
+    // useCallback, useMemo, React.memo 활용하기
+
     return (
         <>
             <View />
