@@ -7,7 +7,7 @@ function Template() {
     // const onGetTodoList = async () => {
     //     try {
     //         const response = await API.get('/posts');
-    //         console.log(response);
+    //         console.log(response.data);
     //     }
     //     catch (error) {
     //         console.log(error);

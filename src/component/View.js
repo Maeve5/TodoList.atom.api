@@ -3,35 +3,41 @@ import { useRecoilState } from 'recoil';
 import todoListState from '../atom/todoListState';
 import API from '../modules/api';
 import ViewList from './ViewList';
+// import onGetTodoList from '../modules/onGetTodoList';
 
 function View() {
 
     const [todoList, setTodoList] = useRecoilState(todoListState);
     // {id: number; todo: string; isCheck: boolean}[]
     
-    // let response = [];
+    let response = [];
 
-    // // 데이터 조회
-    // const onGetTodoList = async () => {
-    //     try {
-    //         response = await API.get('/todo');
-    //         setTodoList(response.data);
-    //     }
-    //     catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+    // 데이터 조회
+    const onGetTodoList = async () => {
+        try {
+            response = await API.get('/todo');
+            console.log(response.data)
+            setTodoList(response.data);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    // useEffect(() => {
+    //     API.get("/todo")
+    //         .then(response => {
+    //             setTodoList(response.data);
+    //             console.log(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }, [setTodoList])
 
     useEffect(() => {
-        API.get("/todo")
-            .then(response => {
-                setTodoList(response.data);
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [setTodoList])
+        onGetTodoList();
+    }, [])
 
     // 체크 여부 유지
     const onCheck = (e) => {

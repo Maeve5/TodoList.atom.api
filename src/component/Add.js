@@ -57,10 +57,11 @@ function Add() {
     //         // 자동 포커스
     //         input.current.focus();
 
-    //         } catch (error) {
-    //             console.error(error);
     //         }
+    //     catch (error) {
+    //             console.error(error);
     //     }
+    // }
 
     return (
         <>
