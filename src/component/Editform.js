@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSetRecoilState } from 'recoil';
-import todoListState from '../atom/todoListState';
+// import { useSetRecoilState } from 'recoil';
+// import todoListState from '../atom/todoListState';
 
 const Editform = ({ row, editTodoList, setEditTodoList }) => {
 
     const {id, todo} = row;
     
     // 삭제된 목록 atom에 저장
-    const setTodoList = useSetRecoilState(todoListState);
+    // const setTodoList = useSetRecoilState(todoListState);
 
     // todo 수정
     const onEdit = (id, todo) => {
@@ -29,7 +29,7 @@ const Editform = ({ row, editTodoList, setEditTodoList }) => {
                 row.id !== Number(id)
                 );
             });
-        setTodoList(changedList);
+        // setTodoList(changedList);
         setEditTodoList(changedList);
     };
     
